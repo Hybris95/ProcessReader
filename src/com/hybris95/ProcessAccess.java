@@ -169,32 +169,32 @@ public class ProcessAccess
 		if(returnType == char.class)
 		{
 			readSize = 1;
-			return readValue(readAddress, returnType, readSize).getChar(0L);
+			return readValue(readAddress, readSize).getChar(0L);
 		}
 		else if(returnType == short.class)
 		{
 			readSize = 2;
-			return readValue(readAddress, returnType, readSize).getShort(0L);
+			return readValue(readAddress, readSize).getShort(0L);
 		}
 		else if(returnType == int.class)
 		{
 			readSize = 4;
-			return readValue(readAddress, returnType, readSize).getInt(0L);
+			return readValue(readAddress, readSize).getInt(0L);
 		}
 		else if(returnType == long.class)
 		{
 			readSize = 4;
-			return readValue(readAddress, returnType, readSize).getLong(0L);
+			return readValue(readAddress, readSize).getLong(0L);
 		}
 		else if(returnType == float.class)
 		{
 			readSize = 4;
-			return readValue(readAddress, returnType, readSize).getFloat(0L);
+			return readValue(readAddress, readSize).getFloat(0L);
 		}
 		else if(returnType == double.class)
 		{
 			readSize = 8;
-			return readValue(readAddress, returnType, readSize).getDouble(0L);
+			return readValue(readAddress, readSize).getDouble(0L);
 		}
 		else
 		{
@@ -202,7 +202,7 @@ public class ProcessAccess
 		}
 	}
 	
-	private Memory readValue(int readAddress, Class returnType, int readSize) throws Win32Exception
+	private Memory readValue(int readAddress, int readSize) throws Win32Exception
 	{
 		Memory output = new Memory(readSize);
 		if(!myKernel32.ReadProcessMemory(openedProcess, readAddress, output, readSize, new IntByReference(0)))
